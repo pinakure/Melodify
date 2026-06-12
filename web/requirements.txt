@@ -18,3 +18,4 @@ spotipy==2.25.2
 #torchaudio==2.9.1
 yt-dlp==2025.12.8
 ytmusicapi==1.11.4
+django-cors-headers

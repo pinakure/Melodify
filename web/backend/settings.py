@@ -8,18 +8,10 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 VERSION = '0.260106'
 SECRET_KEY = os.environ.get('DJANGO_SECRET')
-#django-insecure-x-xr0dk^wcis00z=aal_0@xx0z__+eviot4wt29-*%^uvp!i*8
 
-ALLOWED_HOSTS = [
-    'melodify.com.82.223.13.41.nip.io',
-    '.82.223.13.41.nip.io',
-    '.nip.io',
-    'localhost',
-    '127.0.0.1',
-    'melodify.com',
-    'melodify.local',
-    'melodify.ddns.net',
-]
+ALLOWED_HOSTS = ['melodify.ddns.net',]
+CSRF_TRUSTED_ORIGINS = [ 'https://melodify.ddns.net', 'https://cpanel.iskarion.ddns.net' ]
+CORS_ALLOW_ALL_ORIGINS = True
 
 INSTALLED_APPS = [
     'main',
@@ -30,12 +22,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'fontawesome_5'
+    'fontawesome_5',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
